@@ -1,0 +1,6 @@
+#!/bin/bash
+clear
+echo 'You can configure the network interface inside this file by running "nano /usr/bin/finishnetsetup" and changing wlan0 to your interface.'
+wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+exit 0

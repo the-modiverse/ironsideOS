@@ -1,0 +1,25 @@
+#!/bin/bash
+​
+while true; do
+    # clear the screen
+    clear
+​
+    echo "--------------------------"
+    echo "Welcome to your Desktop!"
+    echo "--------------------------"
+​
+    # display the file system
+    echo ""
+    echo "File System"
+    echo "------------"
+    ls -Alh
+​
+    # display the current date and time
+    echo ""
+    echo "Date and Time"
+    echo "--------------"
+    date
+​
+    # wait for 2 seconds before redrawing the screen
+    sleep 2
+done

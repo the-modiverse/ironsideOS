@@ -1,0 +1,15 @@
+#!/bin/bash
+clear
+echo 'Instructions on how to setup networking in ironsideOS'
+echo 'This can allow some useful utilities to be setup, such as apk, curl, etc.'
+echo 'This can also allow for a small lightweight web server to be hosted.'
+echo 'NOTE: This may be extremely buggy as it is very WIP. Intel cards are untested.'
+echo ''
+echo ''
+echo 'Run "ip link" to print your available network interfaces.'
+echo 'Run "ip link set (network interface, like wlan0) up".'
+echo 'Run "wpa_passphrase (ssid) (password) > /etc/wpa_supplicant/wpa_supplicant.conf". THERE MUST BE QUOTES WHERE THE BRACKETS ARE!'
+echo 'Run "finishnetsetup" in the shell.'
+echo 'Run "udhcpc -i (network interface, like wlan0)".'
+echo 'Run "ip addr show (network interface, like wlan0)".'
+exit 0

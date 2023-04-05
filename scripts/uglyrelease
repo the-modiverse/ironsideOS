@@ -1,0 +1,4 @@
+#!/bin/bash
+clear
+cat /etc/lsb-release/
+exit 0
