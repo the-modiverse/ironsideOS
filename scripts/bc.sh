@@ -1,10 +1,10 @@
 #!/bin/bash
 clear
-
-echo 'Welcome to ironsideOS v0.1.3'
-echo 'Codename Blowfish'
+hostname ironsideOS
+echo 'Welcome to ironsideOS v0.1.5'
+echo 'Codename Polonia'
 echo ''
-echo 'For internal use only - Do not redistribute.'
+echo 'Public beta release. Do not ask for support.'
 echo ''
 echo 'This software is free. If you paid for it, get a refund immediately.'
 echo 'Get ironsideOS for free at https://os.ironside.org.uk'

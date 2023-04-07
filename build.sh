@@ -53,9 +53,11 @@ mount -vt sysfs sysfs rootfs/sys
 mount -vt proc proc rootfs/proc
 cp /etc/resolv.conf rootfs/etc
 cat << ! > rootfs/etc/apk/repositories
-http://dl-cdn.alpinelinux.org/alpine/v3.12/main
 http://dl-cdn.alpinelinux.org/alpine/edge/community
 http://dl-cdn.alpinelinux.org/alpine/edge/testing
+http://dl-cdn.alpinelinux.org/alpine/v3.16/main
+http://dl-cdn.alpinelinux.org/alpine/v3.16/community
+http://dl-cdn.alpinelinux.org/alpine/edge/main
 !
 
 sleep 2
@@ -64,6 +66,8 @@ cat << ! | chroot rootfs /usr/bin/env PATH=/usr/bin:/usr/local/bin:/bin:/usr/sbi
 apk update
 apk upgrade
 apk add bash alpine-base nano usbmuxd ncurses udev openssh-client sshpass newt neofetch
+apk add iwd
+apk add zsh
 apk add wpa_supplicant
 apk add sudo
 apk add --no-scripts linux-lts linux-firmware
@@ -115,9 +119,11 @@ ln -sv ../../etc/terminfo rootfs/usr/share/terminfo # fix ncurses
 cp -av rootfs/boot/vmlinuz-lts iso/boot/vmlinuz
 cat << ! > iso/boot/grub/grub.cfg
 insmod all_video
-echo 'ironsideOS $VERSION'
+echo 'Loading kernel...'
 linux /boot/vmlinuz quiet loglevel=3
+echo 'Running initramdisk...'
 initrd /boot/initramfs.xz
+echo 'Booting...'
 boot
 !
 
