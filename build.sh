@@ -69,7 +69,7 @@ apk add bash alpine-base nano usbmuxd ncurses udev openssh-client sshpass newt n
 apk add iwd
 apk add wpa_supplicant
 apk add sudo
-apk add --no-scripts linux-lts linux-firmware
+apk add --no-scripts linux-lts linux-firmware-none
 rc-update add bootmisc
 rc-update add hwdrivers
 rc-update add udev
