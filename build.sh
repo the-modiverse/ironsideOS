@@ -67,7 +67,6 @@ apk update
 apk upgrade
 apk add bash alpine-base nano usbmuxd ncurses udev openssh-client sshpass newt neofetch
 apk add iwd
-apk add zsh
 apk add wpa_supplicant
 apk add sudo
 apk add --no-scripts linux-lts linux-firmware
@@ -129,7 +128,7 @@ boot
 
 # initramfs
 pushd rootfs
-rm -rfv tmp/* boot/* var/cache/* etc/resolv.conf
+rm -rfv tmp/* var/cache/* etc/resolv.conf
 find . | cpio -oH newc | xz -C crc32 --x86 -vz9eT$(nproc --all) > ../iso/boot/initramfs.xz
 popd
 
