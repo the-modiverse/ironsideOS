@@ -1,8 +1,8 @@
 #!/bin/bash
 clear
 hostname ironsideOS
-echo 'Welcome to ironsideOS v0.1.5'
-echo 'Codename Polonia'
+echo 'Welcome to ironsideOS v0.1.6'
+echo 'Codename Highlands'
 echo ''
 echo 'Public beta release. Do not ask for support.'
 echo ''
@@ -31,4 +31,3 @@ case $day in
 esac
 echo ''
 echo ''
-bash

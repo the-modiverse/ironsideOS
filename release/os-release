@@ -1,8 +1,8 @@
 PRETTY_NAME="ironsideOS"
 NAME="ironsideOS"
-VERSION_ID="0.1.5"
-VERSION="0.1.5 (Polonia)"
-VERSION_CODENAME=polonia
+VERSION_ID="0.1.6"
+VERSION="0.1.6 (Highlands)"
+VERSION_CODENAME=highlands
 ID=ironsideos
 ID_LIKE=alpine
 HOME_URL="https://repo.ironside.org.uk/"
