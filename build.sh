@@ -118,11 +118,11 @@ ln -sv ../../etc/terminfo rootfs/usr/share/terminfo # fix ncurses
 cp -av rootfs/boot/vmlinuz-lts iso/boot/vmlinuz
 cat << ! > iso/boot/grub/grub.cfg
 insmod all_video
-echo 'Loading kernel...'
+echo ' Loading kernel...'
 linux /boot/vmlinuz quiet loglevel=3
-echo 'Running initramdisk...'
+echo ' Running initramdisk...'
 initrd /boot/initramfs.xz
-echo 'Booting...'
+echo ' Booting...'
 boot
 !
 
