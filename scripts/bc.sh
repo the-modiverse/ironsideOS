@@ -31,3 +31,4 @@ case $day in
 esac
 echo ''
 echo ''
+bash
