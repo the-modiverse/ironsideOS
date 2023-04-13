@@ -24,11 +24,21 @@ until [ "$ARCH" = 'amd64' ] || [ "$ARCH" = 'i686' ] || [ "$ARCH" = 'aarch64' ]; 
     [ -z "$input_arch" ] && ARCH='amd64'
 done
 
-# Install dependencies to build palen1x
-apt-get update
-apt-get install -y --no-install-recommends wget debootstrap mtools xorriso ca-certificates curl libusb-1.0-0-dev gcc make gzip xz-utils unzip libc6-dev
+if hash apt 2>/dev/null; then
+  echo "apt was taken"
+  # Install packages with apt
+  sudo apt update
+  sudo apt install wget debootstrap mtools xorriso ca-certificates curl libusb-1.0-0-dev gcc make gzip xz-utils unzip libc6-dev
+elif hash pacman 2>/dev/null; then
+  echo "pacman was found"
+  # Install packages with pacman
+  sudo pacman -Sy wget debootstrap mtools xorriso ca-certificates curl libusb-1.0-0-dev gcc make gzip xz-utils unzip libc6-dev
+else
+  echo "neither apt nor pacman found, wtf r u doing"
+  exit 1
+fi
 
-# Get proper files for amd64 or i686
+# Get proper files for amd64, i686, or aarch64
 if [ "$ARCH" = 'amd64' ]; then
     ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-minirootfs-3.17.1-x86_64.tar.gz'
     PALERA1N='https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.5/palera1n-linux-x86_64'
@@ -118,7 +128,7 @@ ln -sv ../../etc/terminfo rootfs/usr/share/terminfo # fix ncurses
 cp -av rootfs/boot/vmlinuz-lts iso/boot/vmlinuz
 cat << ! > iso/boot/grub/grub.cfg
 insmod all_video
-echo ' Loading kernel...'
+echo 'Loading kernel...'
 linux /boot/vmlinuz quiet loglevel=3
 echo ' Running initramdisk...'
 initrd /boot/initramfs.xz
